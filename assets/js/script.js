@@ -6,23 +6,31 @@ function AgregarTarea()
 {
     if (inputTarea.value != "")
     {
+        // Se crean elementos
         const elementoLi = document.createElement("li")
-    
         const elementoButton = document.createElement("button")
-        elementoButton.textContent = "×"
+
+        elementoButton.textContent = "×" // Contenido del botón
+
         elementoButton.addEventListener("click", ()=>
         {
                 listaDinamica.removeChild(elementoLi)           
-        })
+        }) // Evenent listener para cada item nuevo, con la opción de borrar
     
-        const texto = document.createTextNode(inputTarea.value)
+        const texto = document.createTextNode(inputTarea.value) // Contenido de texto
     
+        // Se agrega el contenido a la etiqueta li
         elementoLi.appendChild(texto)
         elementoLi.appendChild(elementoButton)
+
+        // Bootstrap
         elementoLi.className = "list-group-item d-flex justify-content-between align-items-center"
         elementoButton.className = "btn btn-primary"
+
+        // Se agrega la etiqueta li a la lista
         listaDinamica.appendChild(elementoLi)
     
+        // Se limpia el campo de texto
         inputTarea.value = ""
     }
 }
